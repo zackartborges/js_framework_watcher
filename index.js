@@ -18,7 +18,8 @@ const sendGetRequest = async (url) => {
 };
 //   console.log(vueData)
 // })();
-sendGetRequest("https://api.github.com/repos/vuejs/vue");
+const vueData = await sendGetRequest("https://api.github.com/repos/vuejs/vue");
+console.log(vueData);
 // const AngularData = sendGetRequest("https://api.github.com/repos/angular/angular.js");
 // const emberData = sendGetRequest("https://api.github.com/repos/emberjs/ember.js");
 // const svelteData = sendGetRequest("https://api.github.com/repos/sveltejs/svelte");
