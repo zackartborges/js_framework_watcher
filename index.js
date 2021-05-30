@@ -1,5 +1,6 @@
 /* global axios */
 const sendGetRequest = async (url) => {
+  let repoData;
   try {
       const resp = await axios.get(url);
       const repoData = {
@@ -10,48 +11,21 @@ const sendGetRequest = async (url) => {
       }
       // return repoData;
       // console.log(resp.data);
-    console.log(repoData);
+    // console.log(repoData);
+    return repoData
   } catch (err) {
       // Handle Error Here
       console.error(err);
   }
 };
-// async function sendGetRequest(url) { 
-//   axios.get(url)
-//     .then(function (response) {
-//     // handle success
-//       // console.log(response);
-//       const repoData = {
-//         name: response.data.full_name,
-//         watchers: response.data.watchers_count,
-//         forks: response.data.forks,
-//         stars: response.data.stargazers_count
-//       };
-//       console.log(repoData);
-//     })
-//     .catch(function (error) {
-//     // handle error
-//       console.log(error);
-//     })
-//     .then(function () {
-//     // always executed
-//     });
-// }
-// const vueData = sendGetRequest("https://api.github.com/repos/vuejs/vue");
+
+// const vueData =  await sendGetRequest("https://api.github.com/repos/vuejs/vue");
 // console.log(vueData);
-
-async function vueData() {
-  try{
-  await sendGetRequest("https://api.github.com/repos/vuejs/vue")
-  const getVueData = repoData;
-  console.log(getVueData);
-  } catch (err){
-    console.log(err);
-  }
-}
-vueData();
-
-
+const vueData = (async () => {
+  const getVueData = await sendGetRequest("https://api.github.com/repos/vuejs/vue")
+  console.log(getVueData)
+})()
+console.log(vueData)
 // const vueData = sendGetRequest("https://api.github.com/repos/vuejs/vue");
 // console.log(vueData);
 // const AngularData = sendGetRequest("https://api.github.com/repos/angular/angular.js");
