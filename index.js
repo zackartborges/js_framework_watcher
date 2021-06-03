@@ -1,4 +1,12 @@
 /* global axios */
+// Url's
+const vueUrl = "https://api.github.com/repos/vuejs/vue";
+const angularUrl = "https://api.github.com/repos/angular/angular.js";
+const emberUrl = "https://api.github.com/repos/emberjs/ember.js";
+const svelteUrl = "https://api.github.com/repos/sveltejs/svelte";
+const reactrUrl = "https://api.github.com/repos/facebook/react";
+
+
 const sendGetRequest = async (url) => {
   let repoData;
   try {
@@ -12,20 +20,34 @@ const sendGetRequest = async (url) => {
       // return repoData;
       // console.log(resp.data);
     // console.log(repoData);
-    return repoData
+    console.log(repoData);
   } catch (err) {
       // Handle Error Here
       console.error(err);
   }
 };
-
-// const vueData =  await sendGetRequest("https://api.github.com/repos/vuejs/vue");
+const mainFunction = async () => {
+  const vueData = await sendGetRequest("https://api.github.com/repos/vuejs/vue")
+  console.log(vueData)
+}
+console.log(mainFunction)
 // console.log(vueData);
-const vueData = (async () => {
-  const getVueData = await sendGetRequest("https://api.github.com/repos/vuejs/vue")
-  console.log(getVueData)
-})()
-console.log(vueData)
+
+// let vueData = sendGetRequest("https://api.github.com/repos/vuejs/vue")
+// console.log(vueData)
+
+
+// attempt at creating an async function to get vueData
+
+// async function vueRun() {
+//   const vueData = await sendGetRequest("https://api.github.com/repos/vuejs/vue");
+//   console.log(vueData);
+// }
+// vueRun();
+
+
+
+
 // const vueData = sendGetRequest("https://api.github.com/repos/vuejs/vue");
 // console.log(vueData);
 // const AngularData = sendGetRequest("https://api.github.com/repos/angular/angular.js");
