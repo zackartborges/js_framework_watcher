@@ -6,7 +6,6 @@ const emberUrl = "https://api.github.com/repos/emberjs/ember.js";
 const svelteUrl = "https://api.github.com/repos/sveltejs/svelte";
 const reactrUrl = "https://api.github.com/repos/facebook/react";
 
-
 const sendGetRequest = async (url) => {
   let repoData;
   try {
@@ -17,25 +16,20 @@ const sendGetRequest = async (url) => {
         forks: resp.data.forks,
         stars: resp.data.stargazers_count
       }
-      // return repoData;
-      // console.log(resp.data);
-    // console.log(repoData);
-    console.log(repoData);
+      return repoData;
+
   } catch (err) {
       // Handle Error Here
       console.error(err);
   }
 };
-const mainFunction = async () => {
-  const vueData = await sendGetRequest("https://api.github.com/repos/vuejs/vue")
-  console.log(vueData)
-}
-console.log(mainFunction)
+
 // console.log(vueData);
 
-// let vueData = sendGetRequest("https://api.github.com/repos/vuejs/vue")
+let vueData = sendGetRequest(vueUrl)
+console.log(vueData)
 // console.log(vueData)
-
+// console.log(vueData);
 
 // attempt at creating an async function to get vueData
 
