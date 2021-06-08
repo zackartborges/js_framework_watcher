@@ -17,7 +17,7 @@
     <script>
       /* global axios */
       // Vue STats
-      // createChart();
+      createChart();
       axios
         .get("https://api.github.com/repos/vuejs/vue")
         .then(function (response) {
@@ -115,22 +115,16 @@
         });
 
       async function createChart() {
-        var ctx = document.getElementById("myChart").getContext("2d");
-        var repoData = await [
-          { name: "vueData", forks: vueForks, stars: vueStars, watchers: vueWatchers },
-          { name: "angularData", forks: angularForks, stars: angularStars, watchers: angularWatchers },
-          { name: "emberData", forks: emberForks, stars: emberStars, watchers: emberWatchers },
-          { name: "svelteData", forks: svelteForks, stars: svelteStars, watchers: svelteWatchers },
-          { name: "reactData", forks: reactForks, stars: reactStars, watchers: reactWatchers },
-        ];
-        var myChart = new Chart(ctx, {
+        var ctx = await document.getElementById("myChart").getContext("2d");
+        var myChart = await new Chart(ctx, {
           type: "bar",
           data: {
-            labels: ["vueData", "Blue", "Yellow", "Green", "Purple", "Orange"],
+            labels: ["Vue Stars", "Angular Stars", "Ember Stars", "Svelte Stars", "React Stars"],
             datasets: [
               {
                 label: "# of Votes",
-                data: repoData,
+                data: [vueStars, angularStars, emberStars, svelteStars, reactStars],
+                // data: [40, 50, 239, 50, 433],
                 backgroundColor: ["rgba(255, 99, 132, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(255, 206, 86, 0.2)"],
                 borderColor: ["rgba(255, 99, 132, 1)", "rgba(54, 162, 235, 1)", "rgba(255, 206, 86, 1)"],
                 borderWidth: 1,
