@@ -1,93 +1,80 @@
-// // /* global axios */
-// // Vue STats
-// axios.get("https://api.github.com/repos/vuejs/vue")
+/* global axios */
+/* global Chart */
+// var response = axios.get("https://api.github.com/repos/vuejs/vue")
 //   .then(function (response) {
 //     // handle success
-//     // console.log(response["data"]);
-//     let vueWatchers = (response["data"]["watchers_count"]);
-//     let vueForks = (response["data"]["forks"]);
-//     let vueStars = (response["data"]["stargazers_count"]);
-//     console.log(vueWatchers);
-//     console.log(vueForks);
-//     console.log(vueStars)
-
-//   })
-//   .catch(function (error) {
-//     // handle error
-//     console.log(error);
-//   });
-// // stars, watchers, forks
-// // Angular Stats
-// axios.get("https://api.github.com/repos/angular/angular.js")
-//   .then(function (response) {
-//     // handle success
-//     let angularWatchers = (response["data"]["watchers_count"]);
-//     let angularForks = (response["data"]["forks"]);
-//     let angularStars = (response["data"]["stargazers_count"]);
-//     console.log(angularWatchers);
-//     console.log(angularForks);
-//     console.log(angularStars)
-//   })
-//   .catch(function (error) {
-//     // handle error
-//     console.log(error);
-//   });
-// //  Ember Stats
-// axios.get("https://api.github.com/repos/emberjs/ember.js")
-//   .then(function (response) {
-//     // handle success
-//     // console.log(response["data"]);
-//     let emberWatchers = (response["data"]["watchers_count"]);
-//     let emberForks = (response["data"]["forks"]);
-//     let emberStars = (response["data"]["stargazers_count"]);
-//     console.log(emberWatchers);
-//     console.log(emberForks);
-//     console.log(emberStars)
-//   })
-//   .catch(function (error) {
-//     // handle error
-//     console.log(error);
-//   })
-//   .then(function () {
-//     // always executed
+//     console.log(response["data"]);
 //   });
 
-// //  Svelte Stats
-// axios.get("https://api.github.com/repos/sveltejs/svelte")
-//   .then(function (response) {
-//     // handle success
-//     // console.log(response["data"]);
-//     let svelteWatchers = (response["data"]["watchers_count"]);
-//     let svelteForks = (response["data"]["forks"]);
-//     let svelteStars = (response["data"]["stargazers_count"]);
-//     console.log(svelteWatchers);
-//     console.log(svelteForks);
-//     console.log(svelteStars)
-//   })
-//   .catch(function (error) {
-//     // handle error
-//     console.log(error);
-//   })
-//   .then(function () {
-//     // always executed
+// var response = axios.get("https://api.github.com/repos/vuejs/vue").then(function (response) {
+//   // handle success
+//   console.log(response["data"]);
+// });
+// function getData() {
+//   function getVueData() {
+//     return axios.get("https://api.github.com/repos/vuejs/vue");
+//   }
+//   function getAngularData() {
+//     return axios.get("https://api.github.com/repos/angular/angular.js");
+//   }
+//   function getEmberData() {
+//     return axios.get("https://api.github.com/repos/emberjs/ember.js");
+//   }
+//   function getSvelteData() {
+//     return axios.get("https://api.github.com/repos/sveltejs/svelte");
+//   }
+//   function getReactData() {
+//     return axios.get("https://api.github.com/repos/facebook/react");
+//   }
+//   Promise.all([getVueData(), getAngularData(), getEmberData(), getSvelteData(), getReactData()]).then(function (
+//     results
+//   ) {
+//     let vueData = results[0];
+//     let angularData = results[1];
+//     let emberData = results[2];
+//     let svelteData = results[3];
+//     let reactData = results[4];
+//     console.log(results);
 //   });
+// }
 
-// //  React Stats
-// axios.get("https://api.github.com/repos/facebook/react")
-//   .then(function (response) {
-//     // handle success
-//     // console.log(response["data"]);
-//     let reactWatchers = (response["data"]["watchers_count"]);
-//     let reactForks = (response["data"]["forks"]);
-//     let reactStars = (response["data"]["stargazers_count"]);
-//     console.log(reactWatchers);
-//     console.log(reactForks);
-//     console.log(reactStars)
-//   })
-//   .catch(function (error) {
-//     // handle error
-//     console.log(error);
-//   })
-//   .then(function () {
-//     // always executed
-//   }); 
+
+// function createChart() {
+//   var ctx = document.getElementById("myChart").getContext("2d");
+//   var myChart = new Chart(ctx, {
+//     type: "bar",
+//     data: {
+//       labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+//       datasets: [{
+//         label: "# of Votes",
+//         data: [12, 19, 3, 5, 2, 3],
+//         backgroundColor: [
+//           "rgba(255, 99, 132, 0.2)",
+//           "rgba(54, 162, 235, 0.2)",
+//           "rgba(255, 206, 86, 0.2)",
+//           "rgba(75, 192, 192, 0.2)",
+//           "rgba(153, 102, 255, 0.2)",
+//           "rgba(255, 159, 64, 0.2)"
+//         ],
+//         borderColor: [
+//           "rgba(255, 99, 132, 1)",
+//           "rgba(54, 162, 235, 1)",
+//           "rgba(255, 206, 86, 1)",
+//           "rgba(75, 192, 192, 1)",
+//           "rgba(153, 102, 255, 1)",
+//           "rgba(255, 159, 64, 1)"
+//         ],
+//         borderWidth: 1
+//       }]
+//     },
+//     options: {
+//       scales: {
+//         y: {
+//           beginAtZero: true
+//         }
+//       }
+//     }
+//   });
+// }
+// getData();
+// createChart();
