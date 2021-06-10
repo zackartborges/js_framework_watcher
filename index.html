@@ -11,12 +11,15 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- <script src="index.js"></script> -->
   </head>
-  <body>
-    <h1>Welcome</h1>
-    <canvas id="starsChart" width="100" height="100"></canvas>
-    <canvas id="forksChart" width="100" height="100"></canvas>
-    <canvas id="watchersChart" width="100" height="100"></canvas>
+  <body style="background-color: beige">
+    <h1 style="text-align: center">Welcome to the Framework Watcher</h1>
+    <div class="chart-container">
+      <canvas id="starsChart" width="100" height="100"></canvas>
 
+      <canvas id="forksChart" width="100" height="100"></canvas>
+
+      <canvas id="watchersChart" width="100" height="100"></canvas>
+    </div>
     <script>
       function getStarData() {
         function getVueData() {
@@ -65,7 +68,7 @@
                 labels: ["Vue", "Angular", "Ember.js", "Svelte.js", "React"],
                 datasets: [
                   {
-                    label: "# Stars on Github",
+                    // label: "# Stars on Github",
                     data: [vueStars, angularStars, emberStars, svelteStars, reactStars],
                     backgroundColor: [
                       "rgba(255, 99, 132, 0.2)",
@@ -88,6 +91,12 @@
                 ],
               },
               options: {
+                plugins: {
+                  title: {
+                    display: true,
+                    text: "Total Repo Stars",
+                  },
+                },
                 scales: {
                   y: {
                     beginAtZero: true,
@@ -100,7 +109,7 @@
           function createForksChart() {
             var ctx = document.getElementById("forksChart").getContext("2d");
             var forksChart = new Chart(ctx, {
-              type: "bar",
+              type: "doughnut",
               data: {
                 labels: ["Vue", "Angular", "Ember.js", "Svelte.js", "React"],
                 datasets: [
@@ -128,6 +137,12 @@
                 ],
               },
               options: {
+                plugins: {
+                  title: {
+                    display: true,
+                    text: "Total Repo Forks",
+                  },
+                },
                 scales: {
                   y: {
                     beginAtZero: true,
@@ -140,7 +155,7 @@
           function createWatchersChart() {
             var ctx = document.getElementById("watchersChart").getContext("2d");
             var watchersChart = new Chart(ctx, {
-              type: "bar",
+              type: "pie",
               data: {
                 labels: ["Vue", "Angular", "Ember.js", "Svelte.js", "React"],
                 datasets: [
@@ -168,6 +183,12 @@
                 ],
               },
               options: {
+                plugins: {
+                  title: {
+                    display: true,
+                    text: "Repo Watchers",
+                  },
+                },
                 scales: {
                   y: {
                     beginAtZero: true,
@@ -184,4 +205,12 @@
       getStarData();
     </script>
   </body>
+  <style>
+    .chart-container {
+      align-items: center;
+      position: relative;
+      height: 100%;
+      width: 40vw;
+    }
+  </style>
 </html>
