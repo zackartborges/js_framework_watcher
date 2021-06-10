@@ -9,18 +9,26 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!-- chart js install -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- bootstrap install -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
+
     <!-- <script src="index.js"></script> -->
   </head>
   <body style="background-color: beige">
     <h1 style="text-align: center">Welcome to the Framework Watcher</h1>
     <div class="chart-container">
-      <canvas id="starsChart" width="100" height="100"></canvas>
+      <canvas class="chart" id="starsChart" width="100" height="100"></canvas>
 
-      <canvas id="forksChart" width="100" height="100"></canvas>
+      <canvas class="chart" id="forksChart" width="100" height="100"></canvas>
 
-      <canvas id="watchersChart" width="100" height="100"></canvas>
+      <canvas class="chart" id="watchersChart" width="100" height="100"></canvas>
     </div>
     <script>
+      // get request functions to put inside of promise all
       function getStarData() {
         function getVueData() {
           return axios.get("https://api.github.com/repos/vuejs/vue");
@@ -38,6 +46,7 @@
           return axios.get("https://api.github.com/repos/facebook/react");
         }
         // huge function, will refactor later!!!
+        // gets data using previously declared functions(get requests)
         Promise.all([getVueData(), getAngularData(), getEmberData(), getSvelteData(), getReactData()]).then(function (
           results
         ) {
@@ -207,10 +216,17 @@
   </body>
   <style>
     .chart-container {
-      align-items: center;
+      text-align: center;
       position: relative;
       height: 100%;
-      width: 40vw;
+      width: 50vw;
+    }
+    .chart {
+      height: 200px;
+      width: 600px;
+      position: relative;
+      left: 50%;
+      top: 50%;
     }
   </style>
 </html>
