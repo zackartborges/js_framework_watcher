@@ -1,6 +1,6 @@
- /* global axios */
- // get request functions to put inside of promise all
- function getStarData() {
+/* global axios */
+// get request functions to put inside of promise all
+function getStarData() {
   function getVueData() {
     return axios.get("https://api.github.com/repos/vuejs/vue");
   }
@@ -43,7 +43,7 @@
     function createStarsChart() {
       var ctx = document.getElementById("starsChart").getContext("2d");
       var starsChart = new Chart(ctx, {
-        type: "bar",
+        type: "pie",
         data: {
           labels: ["Vue", "Angular", "Ember.js", "Svelte.js", "React"],
           datasets: [
